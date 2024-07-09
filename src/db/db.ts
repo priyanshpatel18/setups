@@ -1,18 +1,15 @@
-import mongoose from 'mongoose';
+import { PrismaClient } from '@prisma/client';
 
-export default async function connectDB() {
-  const DATABASE_URL = process.env.DATABASE_URL || '';
+const prismaClientSingleton = () => {
+  return new PrismaClient();
+};
 
-  try {
-    await mongoose
-      .connect(DATABASE_URL)
-      .then(() => {
-        console.log('Database Connected');
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  } catch (error) {
-    console.log(error);
-  }
+declare global {
+  // eslint-disable-next-line no-var
+  var prisma: undefined | ReturnType<typeof prismaClientSingleton>;
 }
+const db = global.prisma ?? prismaClientSingleton();
+
+if (process.env.NODE_ENV !== 'production') global.prisma = db;
+
+export default db;

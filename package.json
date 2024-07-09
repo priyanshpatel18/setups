@@ -2,17 +2,11 @@
   "name": "setups",
   "version": "1.0.0",
   "main": "index.js",
-  "husky": {
-    "hooks": {
-      "pre-commit": "echo \"[Husky] pre-commit\""
-    }
-  },
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "build": "tsc",
     "start": "node dist/index.js",
     "dev": "concurrently \"tsc -w\" \"nodemon -q src/index.ts\"",
-    "pre-commit": "",
     "lint:check": "eslint --max-warnings 0 --config .eslintrc .",
     "lint:fix": "eslint --max-warnings 0 --config .eslintrc . --fix",
     "format:fix": "prettier --write \"**/*.{ts,tsx,json}\"",
@@ -22,7 +16,8 @@
   "dependencies": {
     "cookie-parser": "^1.4.6",
     "dotenv": "^16.4.5",
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "mongoose": "^8.5.0"
   },
   "devDependencies": {
     "@types/cookie-parser": "^1.4.7",

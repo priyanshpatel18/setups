@@ -1,3 +1,7 @@
+# Includes
+- A Model View Controller (MVC) framework for building web applications.
+- Mongoose ORM for MongoDB.
+
 # Steps to Use
 
 ## 1. Fork with All Branches

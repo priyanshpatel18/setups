@@ -24,6 +24,8 @@ app.use('/api/v1', router);
 // Test Route
 app.get('/test', async (req: Request, res: Response) => {
   const users = await db.user.findMany();
+  console.log(users);
+
   return res.json(users);
 });
 

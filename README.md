@@ -1,4 +1,5 @@
 # Includes
+
 - A Model View Controller (MVC) framework for building web applications.
 - Mongoose ORM for MongoDB.
 
@@ -34,4 +35,25 @@ npm i -g pnpm
 
 ```bash
 pnpm install
+```
+
+# How to run?
+
+## Development
+
+```bash
+# Build
+docker-compose -f docker-compose.dev.yml build
+
+# Run
+docker-compose -f docker-compose.dev.yml up
+
+# Run in background (Another Terminal)
+docker-compose -f docker-compose.dev.yml watch
+```
+
+# Production (Work in Progress)
+
+```bash
+
 ```

@@ -1,0 +1,16 @@
+services:
+  app:
+    container_name: app
+    image: express-mvc-starter:latest
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+    restart: always
+    ports:
+      - '${PORT}:${PORT}'
+    environment:
+      - NODE_ENV=production
+      - PORT=${PORT}
+      - DATABASE_URL=${DATABASE_URL}
+    volumes:
+      - /app/node_modules
